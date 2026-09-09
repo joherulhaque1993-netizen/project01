@@ -1,0 +1,2063 @@
+/* ==========================================================================
+   কাতলাসেন কাদেরিয়া কামিল মাদ্রাসা — style.css
+   ========================================================================== */
+
+
+/* ==========================================================================
+   ROOT VARIABLES
+   ========================================================================== */
+
+:root {
+
+    /* --------------------
+       Colors
+    -------------------- */
+
+    --color-primary: #15803d;
+    --color-primary-dark: #14532d;
+    --color-primary-light: #22c55e;
+    --color-accent: #d97706;
+
+    --color-bg: #f2f9f5;
+    --color-bg-card: #ffffff;
+
+    --color-text: #142e1b;
+    --color-text-light: #476a50;
+
+    --color-border: #d1e7d8;
+
+    --color-danger: #ef4444;
+    --color-success: #15803d;
+
+
+    /* --------------------
+       Font
+    -------------------- */
+
+    --font-main:
+        "Noto Sans Bengali",
+        "Hind Siliguri",
+        Arial,
+        sans-serif;
+
+
+    /* --------------------
+       Layout
+    -------------------- */
+
+    --gap: 1rem;
+
+    --container-max: 1200px;
+
+
+    /* --------------------
+       Border Radius
+    -------------------- */
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+
+
+    /* --------------------
+       Shadow
+    -------------------- */
+
+    --shadow-sm:
+        0 2px 8px rgba(0, 0, 0, 0.06);
+
+    --shadow-md:
+        0 6px 20px rgba(0, 0, 0, 0.10);
+
+
+    /* --------------------
+       Transition
+    -------------------- */
+
+    --transition-fast: 0.2s ease;
+
+    --transition-med: 0.4s ease;
+
+}
+
+
+/* ==========================================================================
+   RESET
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+    scroll-padding-top: 130px;
+
+    max-width: 100%;
+
+    overflow-x: clip;
+}
+
+
+body {
+
+    font-family: var(--font-main);
+
+    background: var(--color-bg);
+
+    color: var(--color-text);
+
+    line-height: 1.7;
+
+    font-size: 16px;
+
+    max-width: 100%;
+
+    overflow-x: clip;
+
+    word-wrap: break-word;
+
+    overflow-wrap: break-word;
+}
+
+
+img {
+
+    max-width: 100%;
+
+    display: block;
+}
+
+
+a {
+
+    text-decoration: none;
+
+    color: inherit;
+}
+
+
+ul {
+
+    list-style: none;
+}
+
+
+button {
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    border: none;
+}
+
+
+/* ==========================================================================
+   LAYOUT GRID
+   ========================================================================== */
+
+.grid-container {
+
+    display: grid;
+
+    grid-template-rows:
+        auto
+        auto
+        1fr
+        auto;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    overflow: visible;
+}
+
+
+.grid-main-row {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: var(--gap);
+
+    padding: var(--gap);
+
+    max-width: var(--container-max);
+
+    margin: 0 auto;
+
+    width: 100%;
+}
+
+
+.full-width {
+
+    grid-column: 1 / -1;
+}
+
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+.site-header {
+
+    position: relative;
+
+    z-index: 100;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--color-primary-dark),
+            var(--color-primary)
+        );
+
+    color: #fff;
+
+    padding: 1rem 1.25rem;
+
+    text-align: center;
+
+    box-shadow: var(--shadow-md);
+
+    width: 100%;
+}
+
+
+.site-header h1 {
+
+    font-size:
+        clamp(
+            1.2rem,
+            3vw,
+            1.9rem
+        );
+
+    margin-bottom: 0.4rem;
+
+    word-break: break-word;
+}
+
+
+.site-header p {
+
+    font-size:
+        clamp(
+            0.75rem,
+            2vw,
+            0.95rem
+        );
+
+    opacity: 0.92;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 0.4rem 1rem;
+}
+
+
+.site-header p i {
+
+    margin-right: 0.3rem;
+
+    color: var(--color-accent);
+}
+
+
+/* ==========================================================================
+   NAVIGATION — STICKY
+   ========================================================================== */
+
+.main-nav {
+
+    position: -webkit-sticky;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 99;
+
+    align-self: start;
+
+    background: var(--color-primary-dark);
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-start;
+
+    align-items: center;
+
+    gap: 0.3rem;
+
+    padding: 0.5rem 0.75rem;
+
+    box-shadow: var(--shadow-sm);
+
+    width: 100%;
+}
+
+
+.main-nav a {
+
+    color: #eafaf3;
+
+    font-size: 0.85rem;
+
+    padding: 0.5rem 0.8rem;
+
+    border-radius: var(--radius-sm);
+
+    white-space: nowrap;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.35rem;
+
+    transition:
+        background var(--transition-fast),
+        color var(--transition-fast);
+
+    flex: 0 0 auto;
+
+    -webkit-tap-highlight-color: transparent;
+
+    outline: none;
+}
+
+
+.main-nav a i {
+
+    color: var(--color-accent);
+
+    font-size: 0.85rem;
+}
+
+
+/* Desktop Hover */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .main-nav a:hover {
+
+        background: var(--color-primary-light);
+
+        color: #fff;
+    }
+
+}
+
+
+/* Keyboard Focus */
+
+.main-nav a:focus-visible {
+
+    outline: 2px solid var(--color-primary-light);
+
+    outline-offset: 2px;
+
+    background: transparent;
+}
+
+
+/* Active Navigation */
+
+.main-nav a.active-link {
+
+    background-color: #0d8a4e;
+
+    color: white !important;
+
+    border-radius: 20px;
+}
+
+
+/* ==========================================================================
+   PAGE SECTIONS
+   ========================================================================== */
+
+.page-section {
+
+    background: var(--color-bg-card);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-md);
+
+    padding: 1.25rem;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        box-shadow var(--transition-med),
+        transform var(--transition-med);
+
+    scroll-margin-top: 140px;
+
+    min-width: 0;
+
+    overflow-wrap: break-word;
+}
+
+
+/* Desktop Hover */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .page-section:hover {
+
+        box-shadow: var(--shadow-md);
+    }
+
+}
+
+
+.page-section h2 {
+
+    color: var(--color-primary-dark);
+
+    font-size:
+        clamp(
+            1.05rem,
+            2.5vw,
+            1.35rem
+        );
+
+    margin-bottom: 0.9rem;
+
+    padding-bottom: 0.5rem;
+
+    border-bottom: 2px solid var(--color-accent);
+
+    display: inline-block;
+
+    align-items: center;
+
+    gap: 0.5rem;
+}
+
+
+.page-section p {
+
+    margin-bottom: 0.6rem;
+
+    color: var(--color-text-light);
+
+    font-size: 0.95rem;
+}
+
+
+/* ==========================================================================
+   HIGHLIGHT TEXT
+   ========================================================================== */
+
+.highlight-text {
+
+    background: #fff8e6;
+
+    border-left: 4px solid var(--color-accent);
+
+    padding: 0.7rem 0.9rem;
+
+    border-radius: var(--radius-sm);
+
+    color: var(--color-text) !important;
+}
+
+
+/* ==========================================================================
+   ADMISSION INFO
+   ========================================================================== */
+
+.admission-list li {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 0.5rem;
+
+    padding: 0.5rem 0;
+
+    border-bottom:
+        1px dashed var(--color-border);
+
+    font-size: 0.9rem;
+}
+
+
+.admission-list li i {
+
+    color: var(--color-success);
+
+    margin-top: 0.2rem;
+}
+
+
+/* ==========================================================================
+   ADMISSION FORM — PDF BOX
+   ========================================================================== */
+
+.form-download-box {
+
+    text-align: center;
+
+    background: #f0f7f4;
+
+    border:
+        2px dashed
+        var(--color-primary-light);
+
+    border-radius: var(--radius-md);
+
+    padding: 1.5rem 1rem;
+}
+
+
+.form-download-box i.fa-file-pdf {
+
+    font-size: 2.2rem;
+
+    color: var(--color-danger);
+
+    margin-bottom: 0.6rem;
+}
+
+
+.form-download-box a {
+
+    color: var(--color-primary);
+
+    font-weight: 600;
+
+    font-size: 0.95rem;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .form-download-box a:hover {
+
+        text-decoration: underline;
+    }
+
+}
+
+
+.note-text {
+
+    font-size: 0.8rem;
+
+    color: var(--color-text-light);
+
+    margin-top: 0.4rem;
+}
+
+
+/* ==========================================================================
+   ONLINE APPLICATION FORM
+   ========================================================================== */
+
+#applicationForm {
+
+    width: 100%;
+}
+
+
+.apply-form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 1rem;
+
+    margin-bottom: 1rem;
+}
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.35rem;
+
+    min-width: 0;
+}
+
+
+.form-group--full {
+
+    grid-column: 1 / -1;
+}
+
+
+.form-group label {
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    color: var(--color-primary-dark);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.35rem;
+}
+
+
+.required {
+
+    color: var(--color-danger);
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 0.6rem 0.75rem;
+
+    border:
+        1px solid
+        var(--color-border);
+
+    border-radius: var(--radius-sm);
+
+    font-size: 0.9rem;
+
+    font-family: inherit;
+
+    background: #fff;
+
+    color: var(--color-text);
+
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+
+    max-width: 100%;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    outline: none;
+
+    border-color:
+        var(--color-primary-light);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(34, 197, 94, 0.15);
+}
+
+
+.form-group textarea {
+
+    resize: vertical;
+
+    min-height: 80px;
+}
+
+
+.form-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.75rem;
+}
+
+
+.btn-submit,
+.btn-reset {
+
+    padding:
+        0.65rem 1.4rem;
+
+    border-radius: var(--radius-sm);
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.4rem;
+
+    transition:
+        transform var(--transition-fast),
+        background var(--transition-fast);
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.btn-submit {
+
+    background: var(--color-primary);
+
+    color: #fff;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .btn-submit:hover {
+
+        background:
+            var(--color-primary-dark);
+
+        transform:
+            translateY(-2px);
+    }
+
+}
+
+
+.btn-reset {
+
+    background: #eceef0;
+
+    color: var(--color-text);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .btn-reset:hover {
+
+        background: #dcdfe1;
+    }
+
+}
+
+
+/* ==========================================================================
+   RESULT
+   ========================================================================== */
+
+.result-box {
+
+    background: #f0f7f4;
+
+    border-radius: var(--radius-sm);
+
+    padding: 1rem;
+
+    border-left:
+        4px solid
+        var(--color-primary);
+}
+
+
+.result-box p {
+
+    color: var(--color-text);
+
+    font-size: 0.9rem;
+}
+
+
+/* ==========================================================================
+   TEACHER TABLE
+   ========================================================================== */
+
+.teacher-table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    border-radius: var(--radius-sm);
+}
+
+
+.teacher-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 0.85rem;
+
+    min-width: 100%;
+}
+
+
+.teacher-table th,
+.teacher-table td {
+
+    padding:
+        0.6rem 0.7rem;
+
+    text-align: left;
+
+    border-bottom:
+        1px solid
+        var(--color-border);
+
+    word-break: break-word;
+}
+
+
+.teacher-table th {
+
+    background:
+        var(--color-primary);
+
+    color: #fff;
+
+    font-weight: 600;
+}
+
+
+.teacher-table tbody tr:nth-child(even) {
+
+    background: #f7faf8;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .teacher-table tbody tr:hover {
+
+        background: #eef6f1;
+    }
+
+}
+
+
+.teacher-table .serial {
+
+    width: 15%;
+
+    text-align: center;
+
+    font-weight: 600;
+
+    color:
+        var(--color-primary-dark);
+}
+
+
+.teacher-table .phone {
+
+    color:
+        var(--color-text-light);
+}
+
+
+.teacher-note {
+
+    margin-top: 0.9rem;
+
+    padding: 0.7rem 0.9rem;
+
+    background: #fff8e6;
+
+    border-radius: var(--radius-sm);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.5rem;
+
+    font-size: 0.85rem;
+
+    flex-wrap: wrap;
+}
+
+
+.teacher-note i {
+
+    color: var(--color-accent);
+}
+
+
+/* ==========================================================================
+   NOTICE BOARD
+   ========================================================================== */
+
+.notice-list li {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 0.6rem;
+
+    padding: 0.55rem 0;
+
+    border-bottom:
+        1px dashed
+        var(--color-border);
+
+    font-size: 0.88rem;
+}
+
+
+.notice-list li i {
+
+    font-size: 0.5rem;
+
+    color: var(--color-primary);
+
+    margin-top: 0.5rem;
+}
+
+
+/* ==========================================================================
+   GALLERY
+   ========================================================================== */
+
+.gallery-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 0.75rem;
+
+    margin-top: 0.8rem;
+}
+
+
+.gallery-item {
+
+    aspect-ratio: 1 / 1;
+
+    background: #eef2f0;
+
+    border:
+        1px dashed
+        var(--color-border);
+
+    border-radius: var(--radius-sm);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--color-text-light);
+
+    font-size: 1.4rem;
+
+    transition:
+        background var(--transition-fast);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .gallery-item:hover {
+
+        background: #e2ebe6;
+
+        color: var(--color-primary);
+    }
+
+}
+
+
+.gallery-more {
+
+    text-align: right;
+
+    margin-top: 0.7rem;
+}
+
+
+.gallery-more a {
+
+    color: var(--color-primary);
+
+    font-weight: 600;
+
+    font-size: 0.85rem;
+}
+
+
+/* ==========================================================================
+   CONTACT
+   ========================================================================== */
+
+#contact p {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.5rem;
+
+    color: var(--color-text);
+
+    font-size: 0.9rem;
+
+    flex-wrap: wrap;
+}
+
+
+#contact p i {
+
+    color: var(--color-primary);
+
+    width: 1.2rem;
+
+    text-align: center;
+}
+
+
+.social-links {
+
+    display: flex;
+
+    gap: 0.75rem;
+
+    margin-top: 0.9rem;
+}
+
+
+.social-links a {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    background:
+        var(--color-primary);
+
+    color: #fff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        background var(--transition-fast),
+        transform var(--transition-fast);
+
+    flex-shrink: 0;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .social-links a:hover {
+
+        background:
+            var(--color-primary-dark);
+
+        transform:
+            translateY(-3px);
+    }
+
+}
+
+
+/* ==========================================================================
+   LOGIN SECTION
+   ========================================================================== */
+
+#login {
+
+    text-align: left;
+}
+
+
+/* Login Container */
+
+.login-container {
+
+    width: 100%;
+
+    max-width: 450px;
+
+    margin: 1.2rem auto 0;
+}
+
+
+/* Login Box */
+
+.login-box {
+
+    background: #ffffff;
+
+    border:
+        1px solid
+        var(--color-border);
+
+    border-radius:
+        var(--radius-md);
+
+    padding: 1.5rem;
+
+    box-shadow:
+        var(--shadow-sm);
+
+    text-align: left;
+}
+
+
+/* Login Title */
+
+.login-box h3 {
+
+    color:
+        var(--color-primary-dark);
+
+    text-align: center;
+
+    font-size: 1.2rem;
+
+    margin-bottom: 0.25rem;
+}
+
+
+/* Login Subtitle */
+
+.login-subtitle {
+
+    text-align: center;
+
+    color:
+        var(--color-text-light);
+
+    font-size: 0.85rem;
+
+    margin-bottom:
+        1.2rem !important;
+}
+
+
+/* Login Form */
+
+#loginForm {
+
+    width: 100%;
+}
+
+
+/* Login Form Group */
+
+#loginForm .form-group {
+
+    margin-bottom: 1rem;
+}
+
+
+/* Login Label */
+
+#loginForm .form-group label {
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    color:
+        var(--color-primary-dark);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.35rem;
+}
+
+
+/* Login Label Icon */
+
+#loginForm .form-group label i {
+
+    color:
+        var(--color-accent);
+}
+
+
+/* Login Input */
+
+#loginForm .form-group input {
+
+    width: 100%;
+
+    padding:
+        0.7rem 0.75rem;
+
+    border:
+        1px solid
+        var(--color-border);
+
+    border-radius:
+        var(--radius-sm);
+
+    font-size: 0.9rem;
+
+    font-family: inherit;
+
+    background: #fff;
+
+    color:
+        var(--color-text);
+
+    outline: none;
+
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+
+/* Login Input Focus */
+
+#loginForm .form-group input:focus {
+
+    border-color:
+        var(--color-primary-light);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(34, 197, 94, 0.15);
+}
+
+
+/* ==========================================================================
+   LOGIN PASSWORD
+   ========================================================================== */
+
+#loginForm .password-box {
+
+    display: flex;
+
+    gap: 0.4rem;
+
+    width: 100%;
+}
+
+
+#loginForm .password-box input {
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+/* Show Password Button */
+
+#loginForm #showPassword {
+
+    flex-shrink: 0;
+
+    padding:
+        0 0.8rem;
+
+    border:
+        1px solid
+        var(--color-border);
+
+    border-radius:
+        var(--radius-sm);
+
+    background: #f0f7f4;
+
+    color:
+        var(--color-primary-dark);
+
+    font-size: 0.8rem;
+
+    transition:
+        background var(--transition-fast),
+        color var(--transition-fast);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    #loginForm #showPassword:hover {
+
+        background:
+            var(--color-primary-light);
+
+        color: #fff;
+    }
+
+}
+
+
+/* ==========================================================================
+   LOGIN OPTIONS
+   ========================================================================== */
+
+.login-options {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 0.5rem;
+
+    margin-bottom: 1rem;
+
+    font-size: 0.8rem;
+}
+
+
+/* Remember Me */
+
+.login-options label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.35rem;
+
+    color:
+        var(--color-text-light);
+}
+
+
+/* Checkbox */
+
+.login-options input[type="checkbox"] {
+
+    accent-color:
+        var(--color-primary);
+}
+
+
+/* Forgot Password */
+
+.login-options a {
+
+    color:
+        var(--color-primary);
+
+    font-weight: 600;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .login-options a:hover {
+
+        text-decoration: underline;
+    }
+
+}
+
+
+/* ==========================================================================
+   LOGIN BUTTON
+   ========================================================================== */
+
+#loginForm .login-btn {
+
+    width: 100%;
+
+    padding:
+        0.7rem 1rem;
+
+    border-radius:
+        var(--radius-sm);
+
+    background:
+        var(--color-primary);
+
+    color: #fff;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.4rem;
+
+    transition:
+        background var(--transition-fast),
+        transform var(--transition-fast);
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    #loginForm .login-btn:hover {
+
+        background:
+            var(--color-primary-dark);
+
+        transform:
+            translateY(-2px);
+    }
+
+}
+
+
+/* ==========================================================================
+   LOGIN MESSAGE
+   ========================================================================== */
+
+#loginMessage {
+
+    text-align: center;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    margin-top: 0.8rem;
+
+    margin-bottom: 0 !important;
+}
+
+
+/* ==========================================================================
+   LOGIN REGISTRATION
+   ========================================================================== */
+
+.login-register {
+
+    text-align: center;
+
+    color:
+        var(--color-text-light);
+
+    font-size: 0.85rem;
+
+    margin-top:
+        1.2rem !important;
+
+    margin-bottom:
+        0 !important;
+}
+
+
+.login-register a {
+
+    color:
+        var(--color-primary);
+
+    font-weight: 600;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .login-register a:hover {
+
+        text-decoration: underline;
+    }
+
+}
+
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.grid-footer-row {
+
+    width: 100%;
+}
+
+
+.site-footer {
+
+    background:
+        var(--color-primary-dark);
+
+    color: #eafaf3;
+
+    text-align: center;
+
+    padding:
+        1.25rem 1rem;
+
+    font-size: 0.85rem;
+}
+
+
+.site-footer span {
+
+    color:
+        var(--color-accent);
+
+    font-weight: 600;
+}
+
+
+.footer-sub {
+
+    margin-top: 0.3rem;
+
+    font-size: 0.78rem;
+
+    opacity: 0.85;
+}
+
+
+/* ==========================================================================
+   BACK TO TOP BUTTON
+   ========================================================================== */
+
+#backToTopBtn {
+
+    position: fixed;
+
+    right: 1rem;
+
+    bottom: 1rem;
+
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 50%;
+
+    background:
+        var(--color-primary);
+
+    color: #fff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 1.1rem;
+
+    box-shadow:
+        var(--shadow-md);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(10px);
+
+    transition:
+        opacity var(--transition-fast),
+        transform var(--transition-fast),
+        visibility var(--transition-fast);
+
+    z-index: 200;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+#backToTopBtn.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+}
+
+
+/* ==========================================================================
+   FADE-IN / SLIDE ANIMATIONS
+   ========================================================================== */
+
+.fade-in {
+
+    opacity: 0;
+
+    transition:
+        opacity var(--transition-med);
+}
+
+
+.fade-in.in-view {
+
+    opacity: 1;
+}
+
+
+.slide-left {
+
+    opacity: 0;
+
+    transform:
+        translateX(-30px);
+
+    transition:
+        opacity var(--transition-med),
+        transform var(--transition-med);
+}
+
+
+.slide-left.in-view {
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+}
+
+
+.slide-right {
+
+    opacity: 0;
+
+    transform:
+        translateX(30px);
+
+    transition:
+        opacity var(--transition-med),
+        transform var(--transition-med);
+}
+
+
+.slide-right.in-view {
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+}
+
+
+/* ==========================================================================
+   MEDIA QUERY 1 — TABLET
+   max-width: 992px
+   ========================================================================== */
+
+@media (max-width: 992px) {
+
+    .grid-main-row {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 1rem;
+
+        padding: 1rem;
+    }
+
+
+    .apply-form-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .main-nav {
+
+        justify-content: center;
+
+        gap:
+            0.25rem 0.4rem;
+
+        padding: 0.5rem;
+    }
+
+
+    .main-nav a {
+
+        font-size: 0.8rem;
+
+        padding:
+            0.45rem 0.65rem;
+    }
+
+
+    .site-header h1 {
+
+        font-size: 1.4rem;
+    }
+
+}
+
+
+/* ==========================================================================
+   MEDIA QUERY 2 — SMALL TABLET / LARGE MOBILE
+   max-width: 768px
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+    .grid-main-row {
+
+        grid-template-columns: 1fr;
+
+        gap: 1rem;
+
+        padding: 0.85rem;
+    }
+
+
+    .apply-form-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .main-nav {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        row-gap: 0.4rem;
+
+        column-gap: 0.3rem;
+
+        padding:
+            0.5rem 0.4rem;
+
+        overflow: visible;
+    }
+
+
+    .main-nav a {
+
+        flex:
+            0 1 auto;
+
+        font-size: 0.78rem;
+
+        padding:
+            0.4rem 0.6rem;
+    }
+
+
+    .main-nav a span,
+    .main-nav a {
+
+        white-space: nowrap;
+    }
+
+
+    .page-section h2 {
+
+        font-size: 1.1rem;
+    }
+
+
+    .gallery-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+
+    .teacher-table {
+
+        font-size: 0.78rem;
+    }
+
+
+    /* Login */
+
+    .login-container {
+
+        max-width: 500px;
+    }
+
+}
+
+
+/* ==========================================================================
+   MEDIA QUERY 3 — MOBILE
+   max-width: 480px
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+    body {
+
+        font-size: 14px;
+    }
+
+
+    /* --------------------
+       Header
+    -------------------- */
+
+    .site-header {
+
+        padding:
+            0.85rem 0.6rem;
+    }
+
+
+    .site-header h1 {
+
+        font-size: 1.1rem;
+    }
+
+
+    .site-header p {
+
+        font-size: 0.7rem;
+
+        gap:
+            0.3rem 0.6rem;
+    }
+
+
+    /* --------------------
+       Navigation
+    -------------------- */
+
+    .main-nav {
+
+        display: flex;
+
+        justify-content: flex-start;
+
+        gap: 0.2rem;
+
+        padding:
+            0.40rem 0.3rem;
+    }
+
+
+    .main-nav a {
+
+        font-size: 0.7rem;
+
+        padding:
+            0.30rem 0.2rem;
+
+        gap: 0.20rem;
+    }
+
+
+    .main-nav a i {
+
+        font-size: 0.7rem;
+    }
+
+
+    /* --------------------
+       Main Grid
+    -------------------- */
+
+    .grid-main-row {
+
+        padding: 0.6rem;
+
+        gap: 0.75rem;
+    }
+
+
+    /* --------------------
+       Page Section
+    -------------------- */
+
+    .page-section {
+
+        padding: 0.9rem;
+    }
+
+
+    .page-section h2 {
+
+        font-size: 1rem;
+
+        gap: 0.35rem;
+    }
+
+
+    /* --------------------
+       Application Form
+    -------------------- */
+
+    .apply-form-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* --------------------
+       Gallery
+    -------------------- */
+
+    .gallery-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    /* --------------------
+       Buttons
+    -------------------- */
+
+    .form-actions {
+
+        flex-direction: column;
+    }
+
+
+    .btn-submit,
+    .btn-reset {
+
+        width: 100%;
+
+        justify-content: center;
+    }
+
+
+    /* --------------------
+       Teacher Table
+    -------------------- */
+
+    .teacher-table th,
+    .teacher-table td {
+
+        padding:
+            0.4rem 0.4rem;
+
+        font-size: 0.72rem;
+    }
+
+
+    /* --------------------
+       Social Links
+    -------------------- */
+
+    .social-links a {
+
+        width: 34px;
+
+        height: 34px;
+    }
+
+
+    /* --------------------
+       Login
+    -------------------- */
+
+    .login-container {
+
+        max-width: 100%;
+
+        margin-top: 1rem;
+    }
+
+
+    .login-box {
+
+        padding: 1.1rem;
+    }
+
+
+    .login-box h3 {
+
+        font-size: 1.05rem;
+    }
+
+
+    .login-subtitle {
+
+        font-size: 0.78rem;
+    }
+
+
+    #loginForm .form-group label {
+
+        font-size: 0.8rem;
+    }
+
+
+    #loginForm .form-group input {
+
+        padding:
+            0.65rem;
+
+        font-size: 0.85rem;
+    }
+
+
+    #loginForm #showPassword {
+
+        padding:
+            0 0.65rem;
+
+        font-size: 0.75rem;
+    }
+
+
+    .login-options {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 0.6rem;
+    }
+
+
+    #loginForm .login-btn {
+
+        padding:
+            0.65rem 1rem;
+
+        font-size: 0.85rem;
+    }
+
+
+    .login-register {
+
+        font-size: 0.78rem;
+    }
+
+}
